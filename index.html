@@ -18,14 +18,39 @@
 <body>
   <div id="root"></div>
 
-  <!-- Add your JSX scripts here -->
-  <script type="module" src="App.jsx"></script>
-  <script type="module" src="ColorPicker.jsx"></script>
+  <!-- Inline JSX code for App.jsx -->
+  <script type="text/babel">
+    const { useState } = React;
 
-  <!-- Initialize your app -->
-  <script type="module">
-    import App from './App.jsx';  // Make sure this path is correct
+    function ColorPicker() {
+      const [color, setColor] = useState("#FFFFFF");
+
+      function handleColorChange(event) {
+        setColor(event.target.value);
+      }
+
+      return (
+        <div className="color-picker-container">
+          <h1>Color Picker</h1>
+          <div className="color-display" style={{ backgroundColor: color }}>
+            <p>Selected Color: {color}</p>
+          </div>
+          <label>Select a Color:</label>
+          <input type="color" value={color} onChange={handleColorChange} />
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <div>
+          <ColorPicker />
+        </div>
+      );
+    }
+
     ReactDOM.render(<App />, document.getElementById('root'));
   </script>
+
 </body>
 </html>
