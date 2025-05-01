@@ -11,16 +11,20 @@
 
   <!-- Load Babel to transpile JSX -->
   <script src="https://unpkg.com/@babel/standalone"></script>
+
+  <!-- Link to the external CSS file -->
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
   <div id="root"></div>
 
   <!-- Add your JSX scripts here -->
-  <script type="text/babel" src="App.jsx"></script>
-  <script type="text/babel" src="ColorPicker.jsx"></script>
+  <script type="module" src="App.jsx"></script>
+  <script type="module" src="ColorPicker.jsx"></script>
 
   <!-- Initialize your app -->
-  <script type="text/babel">
+  <script type="module">
+    import App from './App.jsx';  // Make sure this path is correct
     ReactDOM.render(<App />, document.getElementById('root'));
   </script>
 </body>
